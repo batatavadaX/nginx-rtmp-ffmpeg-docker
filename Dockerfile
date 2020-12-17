@@ -57,10 +57,7 @@ RUN cd /tmp/build/nginx/${NGINX_VERSION} && \
 RUN ln -sf /dev/stdout /var/log/nginx/access.log && \
     ln -sf /dev/stderr /var/log/nginx/error.log
 
-# Create HLS/DASH directories
-RUN mkdir /tmp/hls && /tmp/dash
-
-# Set up config file
+#Set up config file
 COPY nginx.conf /etc/nginx/nginx.conf
 
 CMD ["nginx", "-g", "daemon off;"]
